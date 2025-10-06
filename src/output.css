@@ -177,20 +177,41 @@
   }
 }
 @layer utilities {
+  .static {
+    position: static;
+  }
   .m-auto {
     margin: auto;
+  }
+  .contents {
+    display: contents;
   }
   .flex {
     display: flex;
   }
+  .table {
+    display: table;
+  }
   .h-20 {
     height: calc(var(--spacing) * 20);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
   }
   .w-4\/12 {
     width: calc(4/12 * 100%);
   }
+  .w-11 {
+    width: calc(var(--spacing) * 11);
+  }
   .w-11\/12 {
     width: calc(11/12 * 100%);
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .resize {
+    resize: both;
   }
   .items-center {
     align-items: center;
@@ -203,6 +224,10 @@
   }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .bg-gray-900 {
     background-color: var(--color-gray-900);
@@ -235,6 +260,9 @@
   .text-white {
     color: var(--color-white);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -244,6 +272,10 @@
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, var(--color-white) var(--tw-shadow-alpha), transparent);
     }
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .transition-all {
     transition-property: all;
@@ -281,6 +313,11 @@
       }
     }
   }
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -351,6 +388,11 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -367,6 +409,7 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
@@ -382,6 +425,7 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-text-shadow-color: initial;
       --tw-text-shadow-alpha: 100%;
